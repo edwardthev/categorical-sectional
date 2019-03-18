@@ -196,7 +196,6 @@ This is the file that contains the airport names and the wiring configuration fo
 
 #### Annotated Example File
 
-This shows the two sections for an example airport file.
 
 ```json
 {
@@ -211,10 +210,6 @@ This shows the two sections for an example airport file.
   ]
 }
 ```
-
-#### Explanation
-
-There are two sections:
 
 ##### ws2801
 
