@@ -1,12 +1,8 @@
 # VFR Light Map
 
-This is a fork of Dylan Rush's excellent "[Categorical-Sectional](https://github.com/dylanrush/categorical-sectional)".
+This is a fork of JoshnMarzulli's excellent "[Categorical-Sectional](https://github.com/JohnMarzulli/categorical-sectional)".
 
-The purpose of this version was to unify the control code of different LED light types and to add support for WS2801 "individually" addressible LED lights.
-
-I have also attempted to make setup easier by moving the LED configuration into data files.
-
-![Seattle to Oshkosh, showing Sunset across the country](media/weather_and_fade.jpg)
+The purpose of this version is to add a few features such as LED dimming for use in dark rooms, as well as add support for large installations (over 49 LEDs).  Also, re-writing/editing the instructions for clairity.  I have put very little work into the actual program or code, that's ALL John and others...I take no credit for his wonderful work!
 
 ## What You Need
 
@@ -39,11 +35,9 @@ A parts manifest lists a Raspberry Pi Zero due to its size and lower power consu
 
 | Description                                  | Cost    | Link                                                                                                                                                                   |
 | -------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Raspberry Pi Zero W                          | \$29.99 | <https://www.amazon.com/CanaKit-Raspberry-Wireless-Starter-Official/dp/B06XJQV162/ref=sr_1_7?s=electronics&ie=UTF8&qid=1528557992&sr=1-7&keywords=raspberry+pi+zero+w> |
-| 5 volt, 4 amp power supply                   | \$12.99 | <https://www.amazon.com/gp/product/B00MRGKPH8/ref=oh_aui_detailpage_o06_s00?ie=UTF8&psc=1>                                                                             |
-| Barrel jack adapters                         | \$7.99  | <https://www.amazon.com/gp/product/B01M4RBARQ/ref=oh_aui_detailpage_o06_s01?ie=UTF8&psc=1>                                                                             |
-| Individually addressable LEDs (WS2801 based) | \$39.95 | <https://www.amazon.com/12mm-Diffused-Digital-Pixels-Strand/dp/B073MZWBYS/ref=sr_1_1?ie=UTF8&qid=1528558371&sr=8-1&keywords=adafruit+ws2801>                           |
-| 4 Pin JST SM Plugs                           | \$7.99  | <https://www.amazon.com/Visdoll-Pairs-Female-Connector-Cable/dp/B075K48BD9/ref=sr_1_8?ie=UTF8&qid=1528559351&sr=8-8&keywords=4+Pin+JST+SM+Plug>                        |
+| Raspberry Pi Zero W                          | \$30 | <https://www.amazon.com/CanaKit-Raspberry-Wireless-Starter-Official/dp/B06XJQV162/ref=sr_1_7?s=electronics&ie=UTF8&qid=1528557992&sr=1-7&keywords=raspberry+pi+zero+w> |
+| Individually addressable LEDs (WS2801 based) | \$26 | <https://www.amazon.com/gp/product/B0192X56MM/ref=oh_aui_search_asin_title?ie=UTF8&psc=1> |
+| Power Supply for Pi and LEDs (Avoids having two wires hang out the back) | \$14 | <https://www.amazon.com/gp/product/B01LZRIX96/ref=ox_sc_saved_image_2?smid=ARYZM74F47MOK&psc=1> |
 
 ### Bootstrapping The Raspberry Pi
 
@@ -65,7 +59,7 @@ From the command line, after logging in:
 
 ```bash
 cd ~
-git clone https://github.com/JohnMarzulli/categorical-sectional.git
+git clone https://github.com/edwardthev/categorical-sectional.git
 ```
 
 This will install this software onto the Raspberry Pi.
