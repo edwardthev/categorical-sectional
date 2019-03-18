@@ -60,6 +60,11 @@ A full tutorial on how to install the Operating System is available at: <https:/
 3. Choose the WiFi network that will be used when the project is completed.
 4. Choose "Raspbian" as the operating system.
 5. When it is finished, login with the username:pi password:raspberry
+6. I reccomend putting an update script in the root crontab to run weekly in the middle of the night, (I run it at 3am on Friday mornings) an example would be:
+
+```bash
+apt-get clean; apt-get update; apt-get upgrade -y; apt-get autoremove; reboot
+```
 
 #### Get The Code
 
@@ -97,11 +102,13 @@ If you are using multiple strands of lights, plug the MOSI and SCLK together, an
 
 Properly terminate the red and blue tap wires at the end of the strand, I reccomend a terminating butt connector.
 
-Leave the read and blue wire at the start of the strand for the moment.
+Leave the red and blue wire at the start of the strand for the moment.
 
 ### The Power Supply
 
-**TO BE UPDATED**
+**Don't get hurt, if you're not comfortable with electricity, ask a friend!!**
+
+Mount the power supply on the back of your board, prefereably in a place that gets a good airflow and isn't touching other cables.
 
 ### The Raspberry Pi
 
@@ -122,10 +129,12 @@ Solder them to the board.
 ## Final Assembly
 
 - Connect the Male JST and LED connectors together.
+- Mount the Pi to the back of your board, in close proximity to your "first" hole for airport, and near the power supply.
 **Use of a power supply can be dangerous and lethal if done wrong, ask a friend if you're not comfortable**
 - Connect the red (5v) and blue (ground) from the LEDs to the power supply using spade connectors. (I mounted my power supply next to the Pi on the back of the board)
--Cut the micro-usb power to legnth, and connect to the power supply using the spade connectors. (Dashed lines go to the negative, and side with writing goes positive - if you want to double check, you can break open the transformer on the plug that came with your Pi, as it's not needed)
--Cut the "extension cord" to legnth, and attach to the power supply using spade connectors.
+- Cut the micro-usb power to legnth, and connect to the power supply using the spade connectors. (Dashed lines go to the negative, and side with writing goes positive - if you want to double check, you can break open the transformer on the plug that came with your Pi, as it's not needed)
+- Cut the "extension cord" to legnth, and attach to the power supply using spade connectors.
+- Drill the appropriate holes for the airports you want to view, and write the airport and LED number (see numbering below) next to the hole in sharpie, it will make your job easier in the future!
 
 ![Finished Power Supply](media/powersupply.jpg)
 
@@ -142,11 +151,10 @@ This is the first file loaded. It tells the software what type of lights are bei
 ```json
 {
   "mode": "ws2801",
-  "pixel_count": 50,
+  "pixel_count": 164,
   "spi_device": 0,
   "spi_port": 0,
-  "pwm_frequency": 100,
-  "airports_file": "data/kawo_to_kosh.json",
+  "airports_file": "data/usa.json",
   "night_lights": true
 }
 ```
@@ -170,8 +178,6 @@ This controls which type of LED system to use for controlling the lights.
 | Value  | Description                                                                                      |
 | ------ | ------------------------------------------------------------------------------------------------ |
 | ws2801 | Use WS2801 based light strands like those from AdaFruit                                          |
-| pwm    | Use pulse width modulation based LEDs. This can have their colors changed more than normal LEDs. |
-| led    | Use standard LEDs that have a positive wire for each color and a common ground.                  |
 
 #### pixel_count
 
@@ -181,9 +187,6 @@ If you are using ws2801 based LEDs then you may need to change "pixel_count". Ea
 
 You will probably not need to change this. If you do need to change this, then you probably know what to do.
 
-#### pwm_frequency
-
-Used if you are using PWM LEDs.
 
 #### airports_file
 
@@ -197,15 +200,6 @@ This shows the two sections for an example airport file.
 
 ```json
 {
-  "pwm": [
-    { "KRNT": [3, 5, 7] },
-    { "KSEA": [11, 13, 15] },
-    { "KPLU": [19, 21, 23] },
-    { "KOLM": [29, 31, 33] },
-    { "KTIW": [32, 35, 37] },
-    { "KPWT": [36, 38, 40] },
-    { "KSHN": [8, 10, 12] }
-  ],
   "ws2801": [
     { "KRNT": { "neopixel": 0 } },
     { "KSEA": { "neopixel": 2 } },
@@ -221,16 +215,6 @@ This shows the two sections for an example airport file.
 #### Explanation
 
 There are two sections:
-
-##### pwm
-
-Contains the airport name and wiring information. The first number is the wire controlling the red LED, then the green LED, and finally the blue LED.
-
-These wire numbers refer to the _*physical*_ board number on the Raspberry pie.
-
-So for KRNT (Renton), the wire leading to the Red LED would be wired to the GPIO board at pin 3. The Blue LED would be wired to pin 5, and the green LED wire would be wired to pin 7.
-
-_NOTE:_ The "pwm" section is used by both the normal LEDs and the pulse width controlled LEDs.
 
 ##### ws2801
 
@@ -271,7 +255,7 @@ To run it at boot, perform the following steps:
 4. Enter the following text at the _bottom_ of the file:
 
 ```code
-@reboot python3 /home/pi/categorical-sectional/controller.py &
+@reboot sleep 90 && python3 /home/pi/categorical-sectional/controller.py &
 ```
 
 5. Save the file and exit.
