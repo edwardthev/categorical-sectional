@@ -91,7 +91,7 @@ sudo raspi-config
 
 ### Wiring the WS2801
 
-If you are using multiple strands of lights, plug the data and clock together, and use butt connectors and solder to connect the red (+5v) and blue (ground) wires together. MAKE SURE you're starting with the proper side of the light, there is an IN and OUT of each LED.  The "in" is the side that has the small arrow on the left side pointing up. (The side opposite the small black micro-board.)
+If you are using multiple strands of lights, plug the MOSI and SCLK together, and use butt connectors and solder to connect the red (+5v) and blue (ground) wires together. MAKE SURE you're starting with the proper side of the light, there is an IN and OUT of each LED.  The "in" is the side that has the small arrow on the left side pointing up. (The side opposite the small black micro-board.)
 
 Properly terminate the red and blue tap wires at the end of the strand, I reccomend a terminating butt connector.
 
