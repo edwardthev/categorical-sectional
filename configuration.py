@@ -98,7 +98,7 @@ def get_colors():
     if get_mode() == WS2801:
             if use_dim() == false:
                 return __get_ws2801_colors__()
-            else
+            else:
                 return __get_ws2801_d_colors__()
     elif get_mode() == PWM:
         return __get_pwm_colors__()
