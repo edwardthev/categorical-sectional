@@ -150,7 +150,7 @@ This is the first file loaded. It tells the software what type of lights are bei
 
 ```json
 {
-  "mode": "ws2801",
+  "mode": "ws2801_bright",
   "pixel_count": 164,
   "spi_device": 0,
   "spi_port": 0,
@@ -175,9 +175,10 @@ As the station approaches full daylight, the light will fade from bright yellow 
 
 This controls which type of LED system to use for controlling the lights.
 
-| Value  | Description                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------ |
-| ws2801 | Use WS2801 based light strands like those from AdaFruit                                          |
+| Value         | Description                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------ |
+| ws2801_bright | Use WS2801 based light strands and have them 100% brightness                                     |
+| ws2801_dim    | Use WS2801 based light strands and have them 40% brightness                                      |
 
 #### pixel_count
 
