@@ -23,7 +23,10 @@ __full_config__ = os.path.join(__working_dir__, os.path.normpath(CONFIG_FILE))
 # Modes
 STANDARD = 'led'
 PWM = 'pwm'
-WS2801 = 'ws2801'
+#Bright Lights
+WS2801_b = 'ws2801_bright'
+#Dim Mode
+WS2801_d = 'ws2801_dim'
 
 
 with open(__full_config__) as config_file:
@@ -89,8 +92,10 @@ def get_colors():
     Returns the colors based on the config.
     """
 
-    if get_mode() == WS2801:
-        return __get_ws2801_colors__()
+    if get_mode() == WS2801_b:
+        return __get_ws2801_b_colors__()
+    elif get_mode() == WS2801_d:
+        return __get_ws2801_d_colors__()
     elif get_mode() == PWM:
         return __get_pwm_colors__()
 
@@ -132,23 +137,28 @@ def __get_pwm_colors__():
     }
 
 
-def __get_ws2801_colors__():
+def __get_ws2801_b_colors__():
     """
-    Returns the color codes for a WS2801 based light set.
+    Returns the color codes for a WS2801 based light set on a bright setting.
     """
 
 #100% Bright
-#    return {
-#        weather.RED: (255, 0, 0),
-#        weather.GREEN: (0, 255, 0),
-#        weather.BLUE: (0, 0, 255),
-#        weather.LOW: (255, 0, 255),
-#        weather.OFF: (0, 0, 0),
-#        weather.GRAY: (50, 50, 50),
-#        weather.YELLOW: (255, 255, 0),
-#        weather.DARK_YELLOW: (20, 20, 0),
-#        weather.WHITE: (255, 255, 255)
-#    }
+    return {
+        weather.RED: (255, 0, 0),
+        weather.GREEN: (0, 255, 0),
+        weather.BLUE: (0, 0, 255),
+        weather.LOW: (255, 0, 255),
+        weather.OFF: (0, 0, 0),
+        weather.GRAY: (50, 50, 50),
+        weather.YELLOW: (255, 255, 0),
+        weather.DARK_YELLOW: (20, 20, 0),
+        weather.WHITE: (255, 255, 255)
+    }
+
+def __get_ws2801_d_colors__():
+    """
+    Returns the color codes for a WS2801 based light set on a dim setting.
+    """
 
 #40% Bright
     return {
