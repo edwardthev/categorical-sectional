@@ -148,7 +148,7 @@ def __get_ws2801_colors__():
 #        weather.YELLOW: (255, 255, 0),
 #        weather.DARK_YELLOW: (20, 20, 0),
 #        weather.WHITE: (255, 255, 255)
-    }
+#    }
 
 #40% Bright
     return {
