@@ -113,7 +113,6 @@ def __get_led_colors__():
         weather.WHITE: (HIGH, HIGH, HIGH)
     }
 
-
 def __get_pwm_colors__():
     """Returns colors for Pulse Width Modulation control
 
