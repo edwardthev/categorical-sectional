@@ -5,4 +5,5 @@
   "spi_port": 0,
   "airports_file": "data/usa.json",
   "night_lights": true
+  "dim_setting": true
 }
