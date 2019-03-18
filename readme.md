@@ -105,31 +105,29 @@ Leave the read and blue wire at the start of the strand for the moment.
 
 ### The Raspberry Pi
 
-Use the group of four wires from a _*male*_ JST SM adapter.
+Use the group of three wires from a _*male*_ JST SM adapter.
 
 Solder them to the board.
 
 | Wire Color | Physical Pin                                | Pin Name      |
 | ---------- | ------------------------------------------- | ------------- |
-| Blue       | Tied off and shrink wrapped. Not connected. | Not connected |
-| Red        | 25                                          | GRND          |
-| Black      | 23                                          | SCLK          |
-| Green/Teal | 19                                          | MOSI          |
+| Red        | 23                                          | SCLK          |
+| White      | 20                                          | GRND          |
+| Green      | 19                                          | MOSI          |
 
 #### Wiring Detail From Top
 
-![Pi Wiring From Top](media/pins_from_top.jpg)
-
-#### Wiring Detail From Bottom
-
-![Pi Wiring From Bottom](media/pins_from_bottom.jpg)
+![Pi Wiring From Top](media/pi_top.jpg)
 
 ## Final Assembly
 
 - Connect the Male JST and LED connectors together.
-- Connect the barrel jack into the Neopixel strip.
-- Add the SD card to the Pi.
-- Plug inthe NeoPixels first, then the Raspberry Pi.
+**Use of a power supply can be dangerous and lethal if done wrong, ask a friend if you're not comfortable**
+- Connect the red (5v) and blue (ground) from the LEDs to the power supply using spade connectors. (I mounted my power supply next to the Pi on the back of the board)
+-Cut the micro-usb power to legnth, and connect to the power supply using the spade connectors. (Dashed lines go to the negative, and side with writing goes positive - if you want to double check, you can break open the transformer on the plug that came with your Pi, as it's not needed)
+-Cut the "extension cord" to legnth, and attach to the power supply using spade connectors.
+
+![Finished Power Supply](media/powersupply.jpg)
 
 ## Understanding The Configuration Files
 
