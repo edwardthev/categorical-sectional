@@ -84,6 +84,19 @@ def get_airport_file():
 
     return full_config
 
+def use_dim():
+    """
+    Do we dim the whole board 40%?
+
+    Returns:
+        boolean -- True if we should dim the entire board.
+    """
+
+    try:
+        if CONFIG is not None and 'dim' in CONFIG:
+            return CONFIG['dim']
+    except:
+        return False
 
 def get_colors():
     """
@@ -91,7 +104,11 @@ def get_colors():
     """
 
     if get_mode() == WS2801:
-        return __get_ws2801_colors__()
+            if use_dim() == false:
+                return __get_ws2801_colors__()
+    elif get_mode() == WS2801:
+            if use_dim() == true:
+                return __get_ws2801_d_colors__()
     elif get_mode() == PWM:
         return __get_pwm_colors__()
 
