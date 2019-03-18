@@ -134,7 +134,8 @@ Solder them to the board.
 - Connect the red (5v) and blue (ground) from the LEDs to the power supply using spade connectors. (I mounted my power supply next to the Pi on the back of the board)
 - Cut the micro-usb power to legnth, and connect to the power supply using the spade connectors. (Dashed lines go to the negative, and side with writing goes positive - if you want to double check, you can break open the transformer on the plug that came with your Pi, as it's not needed)
 - Cut the "extension cord" to legnth, and attach to the power supply using spade connectors.
-- Drill the appropriate holes for the airports you want to view, and write the airport and LED number (see numbering below) next to the hole in sharpie, it will make your job easier in the future!
+- Drill the appropriate holes for the airports you want to view, and write the airport and LED number (see numbering below) next to the hole in sharpie on the back, it will make your job easier in the future!
+- Use whatever method you prefer to hold the lights in place, I simply used wood glue on the back of the LED once I put it in the appropriately sized hole.
 
 ![Finished Power Supply](media/powersupply.jpg)
 
