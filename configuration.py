@@ -73,6 +73,7 @@ def get_airport_configuration_section():
 
     return mode
 
+
 def get_airport_file():
     """
     Returns the file that contains the airport config
@@ -83,12 +84,14 @@ def get_airport_file():
 
     return full_config
 
+
 def use_dim():
     """
     Returns the dim setting given in the config.
     """
 
     return CONFIG['dim']
+
 
 def get_colors():
     """
@@ -158,6 +161,7 @@ def __get_ws2801_colors__():
         weather.DARK_YELLOW: (20, 20, 0),
         weather.WHITE: (255, 255, 255)
     }
+
 
 def __get_ws2801_d_colors__():
     """
