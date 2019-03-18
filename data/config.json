@@ -1,5 +1,5 @@
 {
-  "mode": "ws2801_bright",
+  "mode": "ws2801",
   "pixel_count": 164,
   "spi_device": 0,
   "spi_port": 0,
