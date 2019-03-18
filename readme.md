@@ -4,6 +4,8 @@ This is a fork of JoshnMarzulli's excellent "[Categorical-Sectional](https://git
 
 The purpose of this version is to add a few features such as LED dimming for use in dark rooms, as well as add support for large installations (over 49 LEDs).  Also, re-writing/editing the instructions for clairity.  I have put very little work into the actual program or code, that's ALL John and others...I take no credit for his wonderful work!
 
+![Whole US showing sunset fade](/media/weathermap_fade.jpg)
+
 ## What You Need
 
 ### Skills Required
