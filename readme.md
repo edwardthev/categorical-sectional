@@ -21,9 +21,11 @@ The electronics cost about \$90 USD if you are buying everything new, and want 5
 
 To complete the project you will need to supply your own chart and backing board.
 
-Soldering is required for three (3) wires, along with some electrical tape.
+Soldering is required for three (3) wires, along with some electrical tape, crimp connectors, and strippers.
 
-To finish the instalation you will need a monitor, and a keyboard.
+To finish the instalation you will need a monitor, and a keyboard to program the Pi.
+
+You can make your map look as simple or fancy as you'd like, I like the look of putting a frame on the map and pouring apoxy over the whole thing, gives it a very professional look as well as enshrines your "functional art".
 
 #### Other Raspberry Pis
 
@@ -33,17 +35,21 @@ A parts manifest lists a Raspberry Pi Zero due to its size and lower power consu
 
 ### Parts List
 
+The below list is a minimum to make the map functional, obviously you'll need tools such as a soldering iron and crimpers as well as a few misc. that any DIYer would likely have.
+
 | Description                                  | Cost    | Link                                                                                                                                                                   |
 | -------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Raspberry Pi Zero W                          | \$30 | <https://www.amazon.com/CanaKit-Raspberry-Wireless-Starter-Official/dp/B06XJQV162/ref=sr_1_7?s=electronics&ie=UTF8&qid=1528557992&sr=1-7&keywords=raspberry+pi+zero+w> |
+| Raspberry Pi Zero W | \$30 | <https://www.amazon.com/CanaKit-Raspberry-Wireless-Starter-Official/dp/B06XJQV162/ref=sr_1_7?s=electronics&ie=UTF8&qid=1528557992&sr=1-7&keywords=raspberry+pi+zero+w> |
 | Individually addressable LEDs (WS2801 based) | \$26 | <https://www.amazon.com/gp/product/B0192X56MM/ref=oh_aui_search_asin_title?ie=UTF8&psc=1> |
-| Power Supply for Pi and LEDs (Avoids having two wires hang out the back) | \$14 | <https://www.amazon.com/gp/product/B01LZRIX96/ref=ox_sc_saved_image_2?smid=ARYZM74F47MOK&psc=1> |
+| Power Supply for Pi and LEDs | \$14 | <https://www.amazon.com/gp/product/B01LZRIX96/ref=ox_sc_saved_image_2?smid=ARYZM74F47MOK&psc=1> |
+| Power Cable | \$9 | <https://www.amazon.com/gp/product/B0109OJJS0/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1> |
+| JST 3 Pin Adapters | \$8 | <https://www.amazon.com/gp/product/B075K4BP8N/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1>  |
 
 ### Bootstrapping The Raspberry Pi
 
 #### OS Instalation
 
-This section gets you started with instaling the software.
+This section gets you started with instaling the software.  There are many details left out, as I'm assuming you generally know what you're doing in a CLI and with a Pi.
 
 A full tutorial on how to install the Operating System is available at: <https://www.raspberrypi.org/documentation/installation/noobs.md>
 
@@ -55,7 +61,7 @@ A full tutorial on how to install the Operating System is available at: <https:/
 
 #### Get The Code
 
-From the command line, after logging in:
+From the CLI, after logging in:
 
 ```bash
 cd ~
@@ -75,7 +81,7 @@ sudo python3 setup.py develop
 
 #### Raspberry Pi Settings
 
-Run 'raspi-config' and enable the SPI bus under Advanced
+Run 'raspi-config' and enable the "SPI Bus" and "SSH" under Interfacing Options
 
 ```bash
 sudo raspi-config
@@ -85,23 +91,15 @@ sudo raspi-config
 
 ### Wiring the WS2801
 
-If you are using multiple strands of lights, plug them together.
-Tape off the red and blue tap wires between the connectors and at the end of the strand.
+If you are using multiple strands of lights, plug the data and clock together, and use butt connectors and solder to connect the red (+5v) and blue (ground) wires together. MAKE SURE you're starting with the proper side of the light, there is an IN and OUT of each LED.  The "in" is the side that has the small arrow on the left side pointing up. (The side opposite the small black micro-board.)
+
+Properly terminate the red and blue tap wires at the end of the strand, I reccomend a terminating butt connector.
 
 Leave the read and blue wire at the start of the strand for the moment.
 
-### The Barrel Jack Adapter
+### The Power Supply
 
-For the barrel jack, use the two thinner wires that come out of the top of the plastic connector from the LED lights.
-
-One is red, the other blue.
-
-- Blue -> Barrel jack minus
-- Red -> Barrel jack positive
-
-#### Wiring Detail For Barrel Jack
-
-![barrel jack wiring details](media/barrel_jack.jpg)
+**TO BE UPDATED**
 
 ### The Raspberry Pi
 
