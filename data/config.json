@@ -1,9 +1,8 @@
 {
-  "mode": "ws2801",
+  "mode": "ws2801_bright",
   "pixel_count": 164,
   "spi_device": 0,
   "spi_port": 0,
   "airports_file": "data/usa.json",
   "night_lights": true
-  "dim": true
 }
