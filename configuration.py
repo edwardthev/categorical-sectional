@@ -90,10 +90,8 @@ def get_colors():
     Returns the colors based on the config.
     """
 
-    if get_mode() == WS2801_b:
-        return __get_ws2801_b_colors__()
-    elif get_mode() == WS2801_d:
-        return __get_ws2801_d_colors__()
+    if get_mode() == WS2801:
+        return __get_ws2801_colors__()
     elif get_mode() == PWM:
         return __get_pwm_colors__()
 
