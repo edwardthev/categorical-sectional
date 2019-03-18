@@ -177,8 +177,7 @@ This controls which type of LED system to use for controlling the lights.
 
 | Value         | Description                                                                                      |
 | ------------- | ------------------------------------------------------------------------------------------------ |
-| ws2801_bright | Use WS2801 based light strands and have them 100% brightness                                     |
-| ws2801_dim    | Use WS2801 based light strands and have them 40% brightness                                      |
+| ws2801        | Use WS2801 based light strands.                                                                  |
 
 #### pixel_count
 
