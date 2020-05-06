@@ -26,7 +26,6 @@ PWM = 'pwm'
 WS2801 = 'ws2801'
 
 
-
 with open(__full_config__) as config_file:
     config_text = config_file.read()
     CONFIG = json.loads(config_text)
@@ -55,6 +54,46 @@ def get_night_lights():
     except:
         return False
 
+def get_night_populated_yellow():
+    """
+    If we are using the option feature that shows day/night cycles,
+    then should we use "populated yellow" as the target color?
+    Defaults to True if the option is not in the config file.
+
+    Returns:
+        boolean -- True if the color of the station should be yellow when it is dark.
+    """
+    try:
+        if CONFIG is not None and 'night_populated_yellow' in CONFIG:
+            return CONFIG['night_populated_yellow']
+    except:
+        return True
+
+def get_night_category_proportion():
+    """
+    If we are using the category color for the night conditions,
+    then what proportion between the category and black should we use?
+    0.0 is black. 1.0 is the normal category color.
+
+    Returns:
+        float -- A number between 0.0 (off) and 1.0 (true category color), inclusive
+    """
+    try:
+        if CONFIG is not None and 'night_category_proportion' in CONFIG:
+            try:
+                unclamped =  float(CONFIG['night_category_proportion'])
+
+                if unclamped < 0.0:
+                    return 0.0
+                
+                if unclamped > 1.0:
+                    return 1.0
+
+                return unclamped
+            except:
+                return 0.5
+    except:
+        return 0.5
 
 def get_airport_configuration_section():
     """
@@ -113,6 +152,7 @@ def __get_led_colors__():
         weather.WHITE: (HIGH, HIGH, HIGH)
     }
 
+
 def __get_pwm_colors__():
     """Returns colors for Pulse Width Modulation control
 
@@ -131,22 +171,23 @@ def __get_pwm_colors__():
         weather.WHITE: (20.0, 50, 100.0)
     }
 
+
 def __get_ws2801_colors__():
     """
-    Returns the color codes for a WS2801 based light set on a dim setting.
+    Returns the color codes for a WS2801 based light set.
     """
 
-#40% Bright
+#65dimmer
     return {
-        weather.RED: (100, 0, 0),
-        weather.GREEN: (0, 100, 0),
-        weather.BLUE: (0, 0, 100),
-        weather.LOW: (100, 0, 100),
+        weather.RED: (90, 0, 0),
+        weather.GREEN: (0, 90, 0),
+        weather.BLUE: (0, 0, 90),
+        weather.LOW: (90, 0, 90),
         weather.OFF: (0, 0, 0),
-        weather.GRAY: (20, 20, 20),
-        weather.YELLOW: (100, 100, 0),
-        weather.DARK_YELLOW: (8, 8, 0),
-        weather.WHITE: (100, 100, 100)
+        weather.GRAY: (18, 18, 18),
+        weather.YELLOW: (90, 90, 0),
+        weather.DARK_YELLOW: (7, 7, 0),
+        weather.WHITE: (90, 90, 90)
     }
 
 
