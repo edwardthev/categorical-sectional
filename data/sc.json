@@ -1,0 +1,6 @@
+{
+  "ws2801": [
+    { "KCHS": { "neopixel": 3 } },
+    { "KLRO": { "neopixel": 4 } }      
+  ]
+}
